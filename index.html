@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title> VoltForge </title>
+
+  <title>VoltForge</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
+
     * {
       margin: 0;
       padding: 0;
@@ -36,8 +40,8 @@
 
     .hero h1 {
       font-size: 3rem;
-      margin-bottom: 10px;
       color: #38bdf8;
+      margin-bottom: 10px;
     }
 
     .hero p {
@@ -52,22 +56,22 @@
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
       border-radius: 20px;
       padding: 25px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      backdrop-filter: blur(10px);
+      transition: 0.3s ease;
     }
 
     .card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.2);
+      box-shadow: 0 10px 30px rgba(56,189,248,0.2);
     }
 
     .card h2 {
-      margin-bottom: 18px;
       color: #7dd3fc;
+      margin-bottom: 20px;
       font-size: 1.5rem;
     }
 
@@ -78,15 +82,16 @@
     label {
       display: block;
       margin-bottom: 6px;
-      font-size: 0.95rem;
       color: #cbd5e1;
+      font-size: 0.95rem;
     }
 
-    input, select {
+    input,
+    select {
       width: 100%;
       padding: 12px;
-      border-radius: 12px;
       border: none;
+      border-radius: 12px;
       background: #1e293b;
       color: white;
       font-size: 1rem;
@@ -100,11 +105,11 @@
       border-radius: 12px;
       background: #38bdf8;
       color: #0f172a;
-      font-weight: 600;
       font-size: 1rem;
+      font-weight: 600;
       cursor: pointer;
-      transition: 0.3s ease;
       margin-top: 10px;
+      transition: 0.3s ease;
     }
 
     button:hover {
@@ -115,9 +120,8 @@
       margin-top: 18px;
       padding: 14px;
       border-radius: 12px;
-      background: rgba(56, 189, 248, 0.12);
+      background: rgba(56,189,248,0.12);
       color: #e0f2fe;
-      font-size: 1rem;
       line-height: 1.6;
       min-height: 60px;
     }
@@ -144,6 +148,7 @@
       align-items: center;
       justify-content: space-evenly;
       padding: 0 12px;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
     }
 
     .band {
@@ -156,243 +161,416 @@
       margin-top: 60px;
       text-align: center;
       color: #94a3b8;
+      font-size: 0.95rem;
     }
+
+    @media (max-width: 768px) {
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+    }
+
   </style>
+
 </head>
+
 <body>
 
-<div class="container">
+  <div class="container">
 
-  <div class="hero">
-    <h1>VoltForge</h1>
-    <p>Interactive Electronics Engineering Toolkit Built with HTML, CSS & JavaScript</p>
-  </div>
-
-  <div class="grid">
-
-    <div class="card">
-      <h2>Ohm's Law Calculator</h2>
-
-      <div class="input-group">
-        <label>Voltage (V)</label>
-        <input type="number" id="voltage" placeholder="Leave one field empty">
-      </div>
-
-      <div class="input-group">
-        <label>Current (I)</label>
-        <input type="number" id="current" placeholder="Leave one field empty">
-      </div>
-
-      <div class="input-group">
-        <label>Resistance (R)</label>
-        <input type="number" id="resistance" placeholder="Leave one field empty">
-      </div>
-
-      <button onclick="calculateOhmsLaw()">Calculate</button>
-
-      <div class="result" id="ohmResult">
-        Your result will appear here.
-      </div>
+    <div class="hero">
+      <h1>VoltForge</h1>
+      <p>
+        Interactive Electronics Engineering Toolkit Built with HTML, CSS & JavaScript
+      </p>
     </div>
 
-    <div class="card">
-      <h2>Power Calculator</h2>
+    <div class="grid">
 
-      <div class="input-group">
-        <label>Voltage (V)</label>
-        <input type="number" id="powerVoltage" placeholder="Enter voltage">
-      </div>
+      <!-- OHM'S LAW -->
 
-      <div class="input-group">
-        <label>Current (I)</label>
-        <input type="number" id="powerCurrent" placeholder="Enter current">
-      </div>
+      <div class="card">
 
-      <button onclick="calculatePower()">Calculate Power</button>
+        <h2>Ohm's Law Calculator</h2>
 
-      <div class="result" id="powerResult">
-        Power output will appear here.
-      </div>
-    </div>
-
-    <div class="card">
-      <h2>Resistor Color Code</h2>
-
-      <div class="resistor">
-        <div class="wire"></div>
-
-        <div class="resistor-body">
-          <div class="band" id="band1Visual"></div>
-          <div class="band" id="band2Visual"></div>
-          <div class="band" id="band3Visual"></div>
-          <div class="band" id="band4Visual"></div>
+        <div class="input-group">
+          <label>Voltage (V)</label>
+          <input type="number" id="voltage" placeholder="Leave one field empty">
         </div>
 
-        <div class="wire"></div>
+        <div class="input-group">
+          <label>Current (I)</label>
+          <input type="number" id="current" placeholder="Leave one field empty">
+        </div>
+
+        <div class="input-group">
+          <label>Resistance (R)</label>
+          <input type="number" id="resistance" placeholder="Leave one field empty">
+        </div>
+
+        <button onclick="calculateOhmsLaw()">
+          Calculate
+        </button>
+
+        <div class="result" id="ohmResult">
+          Your result will appear here.
+        </div>
+
       </div>
 
-      <div class="input-group">
-        <label>Band 1</label>
-        <select id="band1"></select>
+      <!-- POWER CALCULATOR -->
+
+      <div class="card">
+
+        <h2>Power Calculator</h2>
+
+        <div class="input-group">
+          <label>Voltage (V)</label>
+          <input type="number" id="powerVoltage" placeholder="Enter voltage">
+        </div>
+
+        <div class="input-group">
+          <label>Current (I)</label>
+          <input type="number" id="powerCurrent" placeholder="Enter current">
+        </div>
+
+        <button onclick="calculatePower()">
+          Calculate Power
+        </button>
+
+        <div class="result" id="powerResult">
+          Power output will appear here.
+        </div>
+
       </div>
 
-      <div class="input-group">
-        <label>Band 2</label>
-        <select id="band2"></select>
+      <!-- RESISTOR DECODER -->
+
+      <div class="card">
+
+        <h2>Resistor Color Code</h2>
+
+        <div class="resistor">
+
+          <div class="wire"></div>
+
+          <div class="resistor-body">
+
+            <div class="band" id="band1Visual"></div>
+            <div class="band" id="band2Visual"></div>
+            <div class="band" id="band3Visual"></div>
+            <div class="band" id="band4Visual"></div>
+
+          </div>
+
+          <div class="wire"></div>
+
+        </div>
+
+        <div class="input-group">
+          <label>Band 1</label>
+          <select id="band1"></select>
+        </div>
+
+        <div class="input-group">
+          <label>Band 2</label>
+          <select id="band2"></select>
+        </div>
+
+        <div class="input-group">
+          <label>Multiplier</label>
+          <select id="band3"></select>
+        </div>
+
+        <div class="input-group">
+          <label>Tolerance</label>
+          <select id="band4"></select>
+        </div>
+
+        <button onclick="calculateResistor()">
+          Decode Resistor
+        </button>
+
+        <div class="result" id="resistorResult">
+          Resistance value will appear here.
+        </div>
+
       </div>
 
-      <div class="input-group">
-        <label>Multiplier</label>
-        <select id="band3"></select>
-      </div>
-
-      <div class="input-group">
-        <label>Tolerance</label>
-        <select id="band4"></select>
-      </div>
-
-      <button onclick="calculateResistor()">Decode Resistor</button>
-
-      <div class="result" id="resistorResult">
-        Resistance value will appear here.
-      </div>
     </div>
+
+    <footer>
+      Built by Nakul Sarath
+    </footer>
 
   </div>
 
-  <footer>
-    Built by Nakul Sarath
-  </footer>
+  <script>
 
-</div>
+    // OHM'S LAW
 
-<script>
-function calculateOhmsLaw() {
-  const V = parseFloat(document.getElementById('voltage').value);
-  const I = parseFloat(document.getElementById('current').value);
-  const R = parseFloat(document.getElementById('resistance').value);
+    function calculateOhmsLaw() {
 
-  const result = document.getElementById('ohmResult');
-  const filled = [V, I, R].filter(value => !isNaN(value)).length;
+      const V = parseFloat(document.getElementById('voltage').value);
+      const I = parseFloat(document.getElementById('current').value);
+      const R = parseFloat(document.getElementById('resistance').value);
 
-  if (filled !== 2) {
-    result.innerHTML = 'Please fill exactly TWO values.';
-    return;
-  }
+      const result = document.getElementById('ohmResult');
 
-  if (isNaN(V)) {
-    result.innerHTML = `Voltage = <strong>${(I * R).toFixed(2)} V</strong>`;
-  } else if (isNaN(I)) {
-    result.innerHTML = `Current = <strong>${(V / R).toFixed(2)} A</strong>`;
-  } else {
-    result.innerHTML = `Resistance = <strong>${(V / I).toFixed(2)} Ω</strong>`;
-  }
-}
+      const filled =
+        [V, I, R].filter(value => !isNaN(value)).length;
 
-function calculatePower() {
-  const voltage = parseFloat(document.getElementById('powerVoltage').value);
-  const current = parseFloat(document.getElementById('powerCurrent').value);
+      if (filled !== 2) {
 
-  const result = document.getElementById('powerResult');
+        result.innerHTML =
+          'Please fill exactly TWO values.';
 
-  if (isNaN(voltage) || isNaN(current)) {
-    result.innerHTML = 'Please enter valid values.';
-    return;
-  }
+        return;
+      }
 
-  result.innerHTML = `Power = <strong>${(voltage * current).toFixed(2)} W</strong>`;
-}
+      if (isNaN(V)) {
 
-const colorCodes = {
-  black: 0,
-  brown: 1,
-  red: 2,
-  orange: 3,
-  yellow: 4,
-  green: 5,
-  blue: 6,
-  violet: 7,
-  grey: 8,
-  white: 9
-};
+        const voltage = I * R;
 
-const multiplierValues = {
-  black: 1,
-  brown: 10,
-  red: 100,
-  orange: 1000,
-  yellow: 10000,
-  green: 100000,
-  blue: 1000000,
-  gold: 0.1,
-  silver: 0.01
-};
+        result.innerHTML =
+          `Voltage = <strong>${voltage.toFixed(2)} V</strong>`;
+      }
 
-const toleranceValues = {
-  brown: '±1%',
-  red: '±2%',
-  gold: '±5%',
-  silver: '±10%'
-};
+      else if (isNaN(I)) {
 
-const digitColors = ['black','brown','red','orange','yellow','green','blue','violet','grey','white'];
-const multiplierColors = ['black','brown','red','orange','yellow','green','blue','gold','silver'];
-const toleranceColors = ['brown','red','gold','silver'];
+        const current = V / R;
 
-function populateDropdown(id, colors) {
-  const select = document.getElementById(id);
+        result.innerHTML =
+          `Current = <strong>${current.toFixed(2)} A</strong>`;
+      }
 
-  colors.forEach(color => {
-    const option = document.createElement('option');
-    option.value = color;
-    option.textContent = color.charAt(0).toUpperCase() + color.slice(1);
-    select.appendChild(option);
-  });
-}
+      else {
 
-populateDropdown('band1', digitColors);
-populateDropdown('band2', digitColors);
-populateDropdown('band3', multiplierColors);
-populateDropdown('band4', toleranceColors);
+        const resistance = V / I;
 
-function updateResistorVisual() {
-  document.getElementById('band1Visual').style.background = document.getElementById('band1').value;
-  document.getElementById('band2Visual').style.background = document.getElementById('band2').value;
-  document.getElementById('band3Visual').style.background = document.getElementById('band3').value;
-  document.getElementById('band4Visual').style.background = document.getElementById('band4').value;
-}
+        result.innerHTML =
+          `Resistance = <strong>${resistance.toFixed(2)} Ω</strong>`;
+      }
 
-function calculateResistor() {
-  const band1 = document.getElementById('band1').value;
-  const band2 = document.getElementById('band2').value;
-  const band3 = document.getElementById('band3').value;
-  const band4 = document.getElementById('band4').value;
+    }
 
-  updateResistorVisual();
+    // POWER CALCULATOR
 
-  const resistance = ((colorCodes[band1] * 10) + colorCodes[band2]) * multiplierValues[band3];
-  const tolerance = toleranceValues[band4];
+    function calculatePower() {
 
-  let formattedResistance;
+      const voltage =
+        parseFloat(document.getElementById('powerVoltage').value);
 
-  if (resistance >= 1000000) {
-    formattedResistance = (resistance / 1000000) + ' MΩ';
-  } else if (resistance >= 1000) {
-    formattedResistance = (resistance / 1000) + ' kΩ';
-  } else {
-    formattedResistance = resistance + ' Ω';
-  }
+      const current =
+        parseFloat(document.getElementById('powerCurrent').value);
 
-  document.getElementById('resistorResult').innerHTML =
-    `Resistance = <strong>${formattedResistance}</strong><br>Tolerance = <strong>${tolerance}</strong>`;
-}
+      const result =
+        document.getElementById('powerResult');
 
-updateResistorVisual();
+      if (isNaN(voltage) || isNaN(current)) {
 
-document.querySelectorAll('select').forEach(select => {
-  select.addEventListener('change', updateResistorVisual);
-});
-</script>
+        result.innerHTML =
+          'Please enter valid voltage and current values.';
+
+        return;
+      }
+
+      const power = voltage * current;
+
+      result.innerHTML =
+        `Power = <strong>${power.toFixed(2)} Watts</strong>`;
+
+    }
+
+    // RESISTOR DECODER
+
+    const colorCodes = {
+
+      black: 0,
+      brown: 1,
+      red: 2,
+      orange: 3,
+      yellow: 4,
+      green: 5,
+      blue: 6,
+      violet: 7,
+      grey: 8,
+      white: 9
+
+    };
+
+    const multiplierValues = {
+
+      black: 1,
+      brown: 10,
+      red: 100,
+      orange: 1000,
+      yellow: 10000,
+      green: 100000,
+      blue: 1000000,
+      gold: 0.1,
+      silver: 0.01
+
+    };
+
+    const toleranceValues = {
+
+      brown: '±1%',
+      red: '±2%',
+      gold: '±5%',
+      silver: '±10%'
+
+    };
+
+    const digitColors = [
+
+      'black',
+      'brown',
+      'red',
+      'orange',
+      'yellow',
+      'green',
+      'blue',
+      'violet',
+      'grey',
+      'white'
+
+    ];
+
+    const multiplierColors = [
+
+      'black',
+      'brown',
+      'red',
+      'orange',
+      'yellow',
+      'green',
+      'blue',
+      'gold',
+      'silver'
+
+    ];
+
+    const toleranceColors = [
+
+      'brown',
+      'red',
+      'gold',
+      'silver'
+
+    ];
+
+    function populateDropdown(id, colors) {
+
+      const select =
+        document.getElementById(id);
+
+      colors.forEach(color => {
+
+        const option =
+          document.createElement('option');
+
+        option.value = color;
+
+        option.textContent =
+          color.charAt(0).toUpperCase() + color.slice(1);
+
+        select.appendChild(option);
+
+      });
+
+    }
+
+    populateDropdown('band1', digitColors);
+    populateDropdown('band2', digitColors);
+    populateDropdown('band3', multiplierColors);
+    populateDropdown('band4', toleranceColors);
+
+    function updateResistorVisual() {
+
+      document.getElementById('band1Visual').style.background =
+        document.getElementById('band1').value;
+
+      document.getElementById('band2Visual').style.background =
+        document.getElementById('band2').value;
+
+      document.getElementById('band3Visual').style.background =
+        document.getElementById('band3').value;
+
+      document.getElementById('band4Visual').style.background =
+        document.getElementById('band4').value;
+
+    }
+
+    function calculateResistor() {
+
+      const band1 =
+        document.getElementById('band1').value;
+
+      const band2 =
+        document.getElementById('band2').value;
+
+      const band3 =
+        document.getElementById('band3').value;
+
+      const band4 =
+        document.getElementById('band4').value;
+
+      updateResistorVisual();
+
+      const firstDigit = colorCodes[band1];
+      const secondDigit = colorCodes[band2];
+      const multiplier = multiplierValues[band3];
+      const tolerance = toleranceValues[band4];
+
+      const resistance =
+        ((firstDigit * 10) + secondDigit) * multiplier;
+
+      let formattedResistance;
+
+      if (resistance >= 1000000) {
+
+        formattedResistance =
+          (resistance / 1000000) + ' MΩ';
+
+      }
+
+      else if (resistance >= 1000) {
+
+        formattedResistance =
+          (resistance / 1000) + ' kΩ';
+
+      }
+
+      else {
+
+        formattedResistance =
+          resistance + ' Ω';
+
+      }
+
+      document.getElementById('resistorResult').innerHTML =
+
+        `Resistance = <strong>${formattedResistance}</strong><br>
+         Tolerance = <strong>${tolerance}</strong>`;
+
+    }
+
+    updateResistorVisual();
+
+    document.querySelectorAll('select').forEach(select => {
+
+      select.addEventListener(
+        'change',
+        updateResistorVisual
+      );
+
+    });
+
+  </script>
 
 </body>
+
 </html>
